@@ -1,0 +1,59 @@
+body {
+    background-color: darkgrey;
+    margin:80px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18;
+    color:black;
+}
+
+.btn{
+    width:200px;
+    height:800px;
+    background-color: black;
+    color: white;
+    text-decoration: none; /*removes underline*/
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 40px;
+    margin-right: 5px;
+}
+
+.btn:hover {
+    background-color: gold;
+    color:purple;
+
+}
+
+.pic{
+    width: 500px;
+    border: 3px solid crimson;
+}
+
+.dragon{
+    border: 3px blue;
+}
+
+#container{
+    width: 970px;
+    padding: 10px;
+    text-align:center ;
+}
+
+h1{
+    width:970px;
+    padding:10px;
+    background-color: blanchedalmond;
+    border:5px solid goldenrod;
+}
+
+.sections{
+    width:950px;
+    padding:10px;
+    background-color: blanchedalmond;
+    text-align:left;
+
+}
+
+.val{
+    width: 700px;
+}
