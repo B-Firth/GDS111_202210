@@ -1,0 +1,92 @@
+body{
+    background-image:url(images/titanfall.jpg);
+    margin:0;
+    font-family:Arial, Verdana,sans-serif;
+    font-size:18px;
+
+}
+
+#wrappera {
+    position:relative;
+    width:960px;
+    padding:10px;
+    background-color: grey;
+    margin:auto;
+    box-shadow:0 0 80px rgb(124, 10, 139); /*offset -x, offset-y, blur radius, color */
+
+}
+
+#wrapperb {
+    position:relative;
+    width:1000px;
+    padding:10px;
+    margin:auto;
+
+}
+
+#main-header{
+    position:relative;
+    background-color:rgb(66, 68, 66);
+    width:960px;
+    height:110px;
+    margin-top:10px;
+}
+
+h1{
+    float:left;
+}
+
+#main-nav{
+    position:absolute; /*cannot give a child element a position of absolute unless its parent (contaning element) has a position set*/
+    width:303px;
+    height:40px;
+    margin:20px;
+    left:300px;
+    top:50px;
+
+    /* TOTAL WIDTH: 342px
+    (300width + 20marginleft + 20 marginRight + 1borderleft + 1borderRight)*/
+}
+
+.btn{
+    float:left; /*allows buttons to be next to one another*/
+    
+    width:100px;
+    height:40px;
+    background-color: steelblue;
+    color: black;
+    text-decoration: none; /*removes underline*/
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    margin-right: 1px;
+}
+
+.btn:hover {
+    background-color: darkblue;
+    color:rgb(162, 93, 226);
+}
+
+
+.section {
+    width:400px;
+    height:600px;
+    background-color: rgb(66, 68, 66);
+    position: relative;
+    margin:30px 0; /*top+bottom, left+right*/
+    border:2px solid orange;
+    text-align: center;
+    color:skyblue
+
+}
+
+#boxes {
+    position: absolute;
+    width: 300px;
+    height:100px;
+    background-color: black;
+    margin:-100px 0 0 600px; /*negative values move closer as oppose  to away from the direction*/
+    /*top, right, bottom, left*/
+
+}
