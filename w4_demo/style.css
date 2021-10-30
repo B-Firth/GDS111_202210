@@ -7,7 +7,7 @@ div{
     border:1px solid black;
     padding:10px;
     margin-bottom:10px;
-    border-radius: 10px; /*rounds corners of block level elements*/
+    border-radius: 100px; /*rounds corners of block level elements*/
 
 }
 
