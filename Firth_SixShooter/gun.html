@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gun | Six Shooter Program</title>
+
+    <!--Link to the external js file-->
+    <script type ="text/javascript" src="demo.js"></script>
+    <link rel="stylesheet"  type="text/css" href="style.css" >
+
+    
+</head>
+
+<body onload="updatescreen();">
+
+    <div id="wrapper">
+
+        <header>
+            <h1>Six Shooter | Gun Program</h1> <!--MAKE A GRPAHIC in PS or Il-->
+        </header>
+
+        <!--Div box that holds the target image-->
+        <div id="target">
+            <img src="images/Ghoul.png" alt=""/>
+        </div> <!--/ #target-->
+
+        <!--nav box that holds info and buttons for game!-->
+        <nav>
+            <!--left info box-->
+            <section id="left">
+
+                <!--ammo chache-->
+                <div id="total-ammo"></div>
+
+                <!--current ammo-->
+                <div id="current-ammo"></div>
+
+
+            </section> <!--/ #left-->
+
+            <!--right info box: for BUTTON control-->
+            <div id="right">
+
+                <form>
+                    <p class="btn">
+                        <input type="button" value="SHOOT" class="shoot" onclick="shoot();" />
+                    </p>
+
+                    <p class="btn">
+                        <input type="button" value="RELOAD" class="reload" onclick="reload();" />
+                    </p>
+
+
+                </form>
+
+            </div><!--/ #right-->
+
+        </nav><!--/ #nav-->
+
+        <footer>
+            <p class="copy">&copy; 2021 | HTML & Javascript | BFIRTH</p>
+        </footer>
+
+
+    </div><!--/ #wrapper-->
+
+    <!--HTML 5 AUIDO PLAYERS GO BELOW THIS LINE BUT INSIDE OF THE BODY (yes, sound)-->
+
+    <audio id="gun" src="sounds/shot1.mp3">
+
+        <p>Your browser sucks and doesn't know HTML5.</p>
+    
+    </audio>
+
+    <audio id="reload" src="sounds/reload1.mp3">
+
+        <p>Your browser sucks and doesn't know HTML5.</p>
+    
+    </audio>
+    
+</body>
+</html>

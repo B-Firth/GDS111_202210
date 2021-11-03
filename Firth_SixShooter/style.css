@@ -1,0 +1,62 @@
+/* six-shooter demo file*/
+
+/*style to see the elements on the gate page */
+
+.gatebody {
+    background-image: url(images/gatebg.jpg);
+}
+
+#gatewrap{
+    background-color: rgba(105, 105, 105, 0.5);
+    position: relative;
+    padding:10px;
+    text-align: center;
+    border: 3px solid darkolivegreen;
+    width:600px;
+    height:600px;
+    margin: auto;
+
+}
+
+#wrapper{
+    width:980px;
+    margin:auto;
+
+}
+
+
+nav{
+    position: relative;
+    width:400px;
+    height:100px;
+    margin:auto;
+    text-align: center;
+    
+}
+
+.btng{
+    float:left; 
+    width:400px;
+    height:60px;
+    background-color: black;
+    color: white;
+    text-decoration: none; /*removes underline*/
+    font-size: 36px;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.btng:hover {
+    background-color: darkred;
+    color:rgb(48, 161, 48);
+}
+
+
+footer{
+    text-align:center;
+}
+
+header {
+    text-align:center;
+}
