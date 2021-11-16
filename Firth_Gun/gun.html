@@ -7,13 +7,13 @@
     <title>Gun | Six Shooter Program</title>
 
     <!--Link to the external js file-->
-    <script type ="text/javascript" src="demo.js"></script>
+    <script type ="text/javascript" src="six.js"></script>
     <link rel="stylesheet"  type="text/css" href="style.css" >
 
     
 </head>
 
-<body onload="updatescreen();">
+<body class= "gunbody" onload="updatescreen();">
 
     <div id="wrapper">
 
@@ -32,9 +32,11 @@
             <section id="left">
 
                 <!--ammo chache-->
+                <p>Total Ammo</p>
                 <div id="total-ammo"></div>
 
                 <!--current ammo-->
+                <p>Current Ammo</p>
                 <div id="current-ammo"></div>
 
 
@@ -66,15 +68,15 @@
 
     </div><!--/ #wrapper-->
 
-    <!--HTML 5 AUIDO PLAYERS GO BELOW THIS LINE BUT INSIDE OF THE BODY (yes, sound)-->
+    <!--HTML 5 AUIDO PLAYERS-->
 
-    <audio id="gun" src="sounds/shot1.mp3">
+    <audio id="gun" src="sounds/shot.mp3">
 
         <p>Your browser sucks and doesn't know HTML5.</p>
     
     </audio>
 
-    <audio id="reload" src="sounds/reload1.mp3">
+    <audio id="reload" src="sounds/reload.mp3">
 
         <p>Your browser sucks and doesn't know HTML5.</p>
     

@@ -66,6 +66,7 @@ function reload() {
 
         document.getElementById("reload").play();
 
+
     }
 
     if (totalAmmo >= difference){

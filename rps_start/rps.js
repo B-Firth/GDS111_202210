@@ -17,6 +17,21 @@ pics2[0] = "images/rock2.jpg"
 pics2[1] = "images/paper2.jpg"
 pics2[2] = "images/scissors2.jpg"
 
+//create array holding the button elements
+//document.qurySelectorAll grabs all of one elment type
+var btn =document.querySelectorAll("button")
+
+//check your stored data in the console!
+console.log(btn) //used for testing, requires the dev tools to be open
+
+//make the buttons clickable and runable ALSO for the game
+//add event listeners to each button
+btn[0].addEventListener("click", function (e) { play(0)})
+btn[1].addEventListener("click", function (e) { play(1)})
+btn[2].addEventListener("click", function (e) { play(2)})
+
+
+
 //arrays that store the player & cpu options (one array for each)
 //Player ID - pId
 var pId= new Array("rock_p", "paper_p", "scissors_p") 
@@ -39,6 +54,8 @@ function play(id) {
     //console.log("play!", id)
 
     //stored images paths (src) in JS to match the HTML ones
+    //swap() CALLS the fuction --> this gets its code to run!
+    //values supplied inside of () are passed into the parameter variables
     swap(pId[0], pics[0])
     swap(pId[1], pics[1])
     swap(pId[2], pics[2])
@@ -73,15 +90,20 @@ function play(id) {
         if (c_choice == 0) {
             //alert the user that there has been a draw
             alert("Bloody hell let's call it a DRAW!")
+            //callshowResults() and pass corrrect values for: pChoice, cChoice, Results
+            showResults("Rock!", "Rock!", "It's a DRAW!")
 
         }
         else if (c_choice == 1) { //cpu is paper
             
             alert("You LOST to the Computer!")
+            showResults("Rock!", "Paper!", "You have Lost!!")
+
         }
 
         else {//cpu is scissors
             alert("You WIN with Rock!")
+            showResults("Rock!", "Scissors!", "Victory!")
 
         }
 
@@ -93,15 +115,18 @@ function play(id) {
             if (c_choice == 0) {
                 //alert the user that the player has won
                 alert("You WIN with Paper!")
+                showResults("Paper!", "Rock!", "You have Won, Buddy!")
     
             }
             else if (c_choice == 1) { //cpu is paper
                 
                 alert("It's a DRAW!")
+                showResults("Paper!", "Paper!", "It's a DRAW, stand down!")
             }
     
             else {//cpu is scissors
                 alert("You LOST to the computer!")
+                showResults("Paper!", "Scissors!", "You have lost to a machine!")
     
             }
     
@@ -109,18 +134,21 @@ function play(id) {
             break
 
         case 2:
-            if (c_choice == 0) {
-                //alert the user that there has been beaten
+            if (c_choice == 0) { //CPU is rock
+                //alert the user that they have been beaten
                 alert("You LOST, better luck next time!")
+                showResults("Scissors!", "Rock!", "Mission Failed, we'll get'em next time!")
     
             }
             else if (c_choice == 1) { //cpu is paper
                 
                 alert("You have claimed Victory!")
+                showResults("Scissors!", "Paper!", "Congrats, you have claimed victory!")
             }
     
             else {//cpu is scissors
                 alert("It's a DRAW!")
+                showResults("Scissors!", "Scissors!", "It's a DRAW!")
     
             }
     
@@ -128,6 +156,17 @@ function play(id) {
             break
 
 
-    }
+    } //end switch statement
 
 } //play() close
+
+
+//function that wirtes the results back to the HTML page
+function showResults(pChoice, cChoice, results) {
+
+    document.getElementById("pChoice").innerHTML = pChoice
+    document.getElementById("cChoice").innerHTML = cChoice
+    document.getElementById("results").innerHTML = results
+    
+
+}

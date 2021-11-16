@@ -1,0 +1,145 @@
+/* six-shooter demo file*/
+
+/*style to see the elements on the gate page */
+
+.gatebody {
+    background-image: url(images/gatebg.jpg);
+    margin-top: 150px;
+}
+
+#gatewrap{
+    background-color: rgba(105, 105, 105, 0.5);
+    position: relative;
+    padding:10px;
+    text-align: center;
+    border: 3px solid darkolivegreen;
+    width:600px;
+    height:300px;
+    margin: auto;
+    color: chartreuse;
+    padding-top: 50px;
+
+}
+
+#wrapper{
+    width:1000px;
+    height: 900px;
+    margin:auto;
+    border: 3px solid rgb(2, 66, 2);
+    background-color: rgba(8, 180, 2, 0.4);
+}
+
+#target {
+    margin: 60px;
+    text-align: center;
+    background-color: rgb(4, 139, 27);
+    border: 3px solid springgreen;
+    border-radius: 10% / 50%;
+    
+}
+
+nav{
+    position: relative;
+    width:980px;
+    height:200px;
+    margin: 4px;
+    text-align: center;
+    border: 2px solid rgb(0, 255, 0);
+    clear: both;
+    margin: 0 10 0 10;
+    
+}
+
+.btng{
+    float:left; 
+    width:400px;
+    height:60px;
+    background-color: darkgreen;
+    color: lime;
+    text-decoration: none; /*removes underline*/
+    font-size: 36px;
+    font-weight: bold;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.btng:hover {
+    background-color: limegreen;
+    color:darkgreen;
+}
+
+footer{
+    text-align: center;
+    border:3px solid greenyellow;
+    margin: 50px;
+    clear: both;
+    
+}
+
+header {
+    text-align:center;
+    border: 2px solid rgb(3, 34, 3);
+    margin: 15px;
+    background-color: rgba(46, 192, 46, 0.7);
+}
+
+.btn{
+    float:right; 
+    width:100px;
+    height:30px;
+    background-color: rgb(14, 85, 14);
+    border: 2px solid greenyellow;
+    text-decoration: none; /*removes underline*/
+    font-size: 12px;
+    margin:15px 20px 0 0;
+    padding: 5px;
+    text-align: center;
+    clear: all;
+}
+
+.gunbody {
+    background-image: url(images/gunbg.JPG);
+
+}
+
+#left{
+    width:300px;
+    height: 150px;
+    border: 2px solid rgb(0, 255, 0);
+    float: left;
+    margin: 10px;
+}
+
+#total-ammo {
+    position: relative;
+    
+    background-color: rgb(47, 255, 82);
+    font-size: 35px;
+    border: 2px green;
+    border-radius: 10px;
+    padding: 12px;
+    float: left;
+    color: rgb(6, 71, 6);
+    margin-left: 70px;
+}
+
+#current-ammo {
+    position: relative;
+    
+    background-color: rgb(47, 255, 82);
+    font-size: 35px;
+    border: 2px green;
+    border-radius: 10px;
+    padding: 12px;
+    float: right;
+    color: rgb(6, 71, 6);
+    margin-right: 70px;
+}
+
+#right{
+    width:300px;
+    height: 160px;
+    border: 2px solid rgb(0, 255, 0);
+    margin: 10px;
+    float: right;
+}
