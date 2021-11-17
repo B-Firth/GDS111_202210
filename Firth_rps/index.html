@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <meta name="author" content="Jay Aguiar">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+
+        <h2>Player (You)</h2>
+        <div class="player">
+            <img src="images/rock.png" id="rock_p" onclick="play(0);"/>
+            <img src="images/paper.png" id="paper_p" onclick="play(1);"/>
+            <img src="images/scissors.png" id="scissors_p" onclick="play(2);"/>
+
+
+
+        </div> <!--/ .player-->
+
+        <h2>Artifical Intelligence</h2>
+        <div class="cpu">
+            <img src="images/rock.png" id="rock_c"/>
+            <img src="images/paper.png" id="paper_c"/>
+            <img src="images/scissors.png" id="scissors_c"/>
+
+
+        </div> <!-- / .cpu-->
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+        <nav>
+            <button id="rock">Rock</a>
+            <button id="paper">Paper</a>
+            <button id="scissors">Scissors</a>
+        </nav>
+        <div id="result">
+            <p>PLAYER CHOSE: <span id="pChoice"></span></p>
+            <p>CPU CHOSE: <span id="cChoice"></span></p>
+            <br>
+
+            <p>GAME OUTCOME: <span id="results"></span></p>
+
+        </div> <!--/ #results-->
+    </div>
+    <script src="firthrps.js"></script>
+</body>
+</html>
