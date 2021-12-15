@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Asteroid Avoidance</title>
+    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+
+    
+    <style>
+        
+        html,body{
+            display: flex;
+            justify-content: center;
+            background-image: url(Images/bg.jpg);
+        }
+        #canvas{
+            border: 1px solid blueviolet;
+        }
+    </style> 
+
+
+</head>
+<body>
+
+    <div id="container">
+        <div id="header">
+            <h1>Imperial Asteroid Run</h1>
+        </div>
+        <div id="game">
+            <canvas id="canvas" width ="1000" height="900" style="border:1px solid black; background-image:url(images/galaxy.jpg) "></canvas> 
+        </div>
+       
+       
+        <script src="AsteroidAvoider.js"></script>
+        
+        <div id="footer"><p>&copy; 2021 | GDS111.21 | Branden R. Firth</p></div>
+    </div>
+    
+  
+</body>
+</html>
