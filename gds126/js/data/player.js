@@ -29,8 +29,8 @@ var playerData ={
 			cycle:true,
 			frames:
 			[
-				{width:300, height:500, startX:0, startY:0},
-				{width:300, height:500, startX:680, startY:0}
+				{width:350, height:500, startX:10, startY:0},
+				{width:350, height:500, startX:620, startY:0}
 				
 			]
 		},
