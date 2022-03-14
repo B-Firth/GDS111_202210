@@ -7,20 +7,21 @@ var friction = {x:.85,y:.97}
 var stage = new GameObject({width:canvas.width, height:canvas.height});
 
 //Avatar
-var wiz = new GameObject({width:128, height:256, spriteData:playerData}).makeSprite(playerData)
+var wiz = new GameObject({width:128, height:200, spriteData:playerData}).makeSprite(playerData)
 wiz.force=1
 
 //Very back background
 var sky = new GameObject({width:canvas.width, height:canvas.height, color:"cyan"})
-sky.img,src="images/RepeatingBg.png";
+sky.img.src="images/vfBakcground.png";
 
 
 //The ground
-var ground = new GameObject({width:canvas.width*10, height:64,y:canvas.height-32, color:"green"})
-ground.img.src="images/mrt.jpg";
+var ground = new GameObject({width:canvas.width*10, height:64,y:canvas.height-2, color:"green"})
+ground.img.src="images/firthGrnd.png";
 
 //A platform
-var plat = new GameObject({width:256, height:64,y:canvas.height-200, color:"green"})
+var plat = new GameObject({width:256, height:64,y:canvas.height-220, color:"transparent"})
+plat.img.src="images/firthPlatform.png";
 
 //A level object when it is moved other objects move with it.
 var level = new GameObject({x:0,y:0});
@@ -62,14 +63,14 @@ levelItems.add([caveBack.grid, ground, plat, cave.grid]);
 
 //background
 var bg = new GameObject({x:level.x,y:level.y, width:canvas.width*4, height:canvas.height})
-bg.img.src=`images/mrt.jpg`
+bg.img.src=`images/Foreground_bg.png`
 
 var clouds = new GameObject({x:level.x,y:level.y})
-clouds.img.src= 'images/RepeatingBg.png'
+clouds.img.src= 'images/vfBakcground.png'
 
 //farbackground
 var rbg = new GameObject({x:level.x, y:level.y, width:1024, height:512})
-rbg.img.src=`images/hills.png`
+rbg.img.src=`images/midBackground.png`
 
 /*------------------vvBULLET STUFFvv----------------------*/
 
@@ -81,14 +82,14 @@ var currentBullet = 0;
 
 for(let i=0; i<100; i++)
 {
-	bullets[i] = new GameObject({width:64, height:64})
-	//bullets[i].img.src="images/mrt.jpg"
-	bullets[i].makeSprite(playerData)
+	bullets[i] = new GameObject({width:32, height:32})
+	bullets[i].img.src='images/firth_spell.png'
+	//bullets[i].makeSprite(playerData)
 	bullets[i].y=-10000
-	bullets[i].changeState(`walk`)
+	//bullets[i].changeState(`walk`)
 }
 
-//console.log(bullets)
+console.log(bullets)
 
 
 
@@ -161,10 +162,10 @@ gameStates[`level1`] = function()
 			shotTimer = shotDelay
 			//console.log(`Boom`)
 
-			bullets[currentBullet].vx = 5*wiz.dir;
+			bullets[currentBullet].vx = 8*wiz.dir;
 			bullets[currentBullet].world = level;
-			bullets[currentBullet].x = wiz.x-level.x + (wiz.dir * 96) ;
-			bullets[currentBullet].y = wiz.y + 20;
+			bullets[currentBullet].x = wiz.x-level.x + (wiz.dir * 60) ;
+			bullets[currentBullet].y = wiz.y + -35;
 			bullets[currentBullet].dir = wiz.dir;
 			
 			//sounds.play(`splode`,1)
@@ -247,6 +248,8 @@ gameStates[`level1`] = function()
 		rbg.x=0; 
 	}
 
+	sky.drawStaticImage()
+
 	var groundPattern = context.createPattern(ground.img, 'repeat');
 	ground.color = groundPattern
 
@@ -264,19 +267,24 @@ gameStates[`level1`] = function()
 	rects.render(`drawRect`)
 	
 
+	
+
 	/*context.beginPath()
 	context.moveTo(0,wiz.bottom.y)
 	context.lineTo(canvas.width,wiz.bottom.y)
 	context.stroke();*/
 
 	sprites.play().render(`drawSprite`);
+	
 	wiz.play(function(){return}).drawSprite()
+
+	plat.drawStaticImage()
 	
 	for(let i=0; i<bullets.length; i++)
 	{
-		if(bullets[i].overlap(stage)) bullets[i].vy+=1;
+		//if(bullets[i].overlap(stage)) bullets[i].vy+=1;
 		bullets[i].move()
-		bullets[i].play(function(){return}).drawSprite()
+		bullets[i].drawStaticImage()
 		//bullets[i].angle+=10
 		while(g1.collide(bullets[i].bottom) && bullets[i].vy>=0)
 		{
@@ -291,6 +299,7 @@ gameStates[`level1`] = function()
 
 
 	front.play().render(`drawSprite`);
+	wiz.drawDebug();
 
 
 }

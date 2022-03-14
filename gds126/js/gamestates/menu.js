@@ -22,16 +22,18 @@ gameStates[`menu`] =function(){
 		}
 
 		//Hover Effect Graffic
-		startButton.color = `yellow`
+		startButton.changeState('hover')
+		canvas.style.cursor='pointer';
 	}
 	else
 	{
 		//Default Button Graphic
-		startButton.color = `red`
+		startButton.changeState('idle')
+		canvas.style.cursor='auto';
 	}
 	
 	menuBackground.drawStaticImage();
-	startButton.render()
+	startButton.play().drawSprite();
 }
 	
 	

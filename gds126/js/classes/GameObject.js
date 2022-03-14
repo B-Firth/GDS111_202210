@@ -226,7 +226,8 @@ function GameObject(obj)
 			context.fillStyle = this.color;
 			context.translate(this.x + this.world.x, this.y + this.world.y);
 			context.rotate(this.angle * Math.PI/180);
-			context.fillRect((-this.width/2), (-this.height/2), this.width, this.height);
+			context.translate(-this.width/2, -this.height);
+			context.fillRect(0,0, this.width, this.height);
 		context.restore();
 		
 	}	
@@ -360,10 +361,10 @@ function GameObject(obj)
 		var size = 5;
 		context.save();
 		context.fillStyle = "black";
-		context.fillRect(this.left().x-size/2, this.left().y-size/2, size, size);
-		context.fillRect(this.right().x-size/2, this.right().y-size/2, size, size);
-		context.fillRect(this.top().x-size/2, this.top().y-size/2, size, size);
-		context.fillRect(this.bottom().x-size/2, this.bottom().y-size/2, size, size);
+		context.fillRect(this.left.x-size/2, this.left.y-size/2, size, size);
+		context.fillRect(this.right.x-size/2, this.right.y-size/2, size, size);
+		context.fillRect(this.top.x-size/2, this.top.y-size/2, size, size);
+		context.fillRect(this.bottom.x-size/2, this.bottom.y-size/2, size, size);
 		context.fillRect(this.x-size/2, this.y-size/2, size, size);
 		context.restore();
 	}

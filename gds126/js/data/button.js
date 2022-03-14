@@ -1,6 +1,6 @@
 var buttonData  = {
     info:{
-        src: 'images/bfirth_Idel-Animation.png'
+        src: 'images/firthButton'
     },
     states:{
         idle:{
