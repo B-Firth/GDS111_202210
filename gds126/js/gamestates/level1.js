@@ -9,6 +9,7 @@ var stage = new GameObject({width:canvas.width, height:canvas.height});
 //Avatar
 var wiz = new GameObject({width:128, height:200, spriteData:playerData}).makeSprite(playerData)
 wiz.force=1
+wiz.y=40
 
 //Very back background
 var sky = new GameObject({width:canvas.width, height:canvas.height, color:"cyan"})
@@ -142,7 +143,7 @@ gameStates[`level1`] = function()
 		wiz.canJump = false;
 		wiz.vy = wiz.jumpHeight;
 		wiz.changeState(`jump`)
-		//sounds.play(`splode`,1)
+		sounds.play(`jumper`,0)
 	}
 	shotTimer--;
 	if(shotTimer <=0)
@@ -168,7 +169,7 @@ gameStates[`level1`] = function()
 			bullets[currentBullet].y = wiz.y + -35;
 			bullets[currentBullet].dir = wiz.dir;
 			
-			//sounds.play(`splode`,1)
+			sounds.play(`shoot`,1)
 
 			currentBullet++;
 			if(currentBullet>=bullets.length)
@@ -299,7 +300,7 @@ gameStates[`level1`] = function()
 
 
 	front.play().render(`drawSprite`);
-	wiz.drawDebug();
+
 
 
 }
