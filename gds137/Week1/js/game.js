@@ -11,7 +11,7 @@ var player;
 	player = new Circle();
 	
 	//------Declare the Player's speed on the x and y axis------
-	player.vx = 0;
+	player.vx = 10;
 	player.vy = 0;
 	//----------------------------------------------------
 	
@@ -29,16 +29,14 @@ function animate()
 	//--------------Bounce of Right----------------------
 	if(player.x > canvas.width - player.width/2)
 	{
+		player.x = canvas.width - player.width/2
 		player.vx = -player.vx;	
 	}
 
-
-	if(player.x < -canvas.width)
+	if(player.x < 0 + player.width/2)
 	{
-		player.vx = +player.vx;	
+		player.vx = -player.vx;	
 	}
-
-
 	//---------------------------------------------------
 	
 	player.drawCircle();
