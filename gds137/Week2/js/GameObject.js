@@ -13,7 +13,7 @@ function GameObject(x,y,w,h,color)
 		this.y = y;
 	
 	if(w == undefined)
-		this.width = 18;
+		this.width = 17;
 	else 
 		this.width = w;
 	if(h == undefined)
