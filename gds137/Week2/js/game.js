@@ -19,12 +19,12 @@ var ball;
 	player.x = 0;
 	player.width = 17;
 
-	ball.vx = 3;
-	ball.vy = 6;
+	ball.vx = -4;
+	ball.vy = -4;
 
 	ball.width = 30;
 	ball.height = 30;
-	ball.x = 20;
+	ball.x = canvas.width/2;
 	ball.y = player.y;
 
 	//Set the Animation Timer
@@ -113,6 +113,12 @@ function animate()
 		{
 			ball.vy = 5
 		}
+	}
+
+	if(ball.x < 0)
+	{
+		ball.x = canvas.width/2
+		ball.vx = -ball.vx
 	}
 
 	if(player.hitTestObject(ball))
