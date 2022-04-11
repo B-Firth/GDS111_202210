@@ -34,6 +34,21 @@ function animate()
 		console.log("Moving up");
 		player.y += -2;
 	}
+	context.clearRect(0,0,canvas.width, canvas.height);	
+	player.move();
+	
+	//--------------Keep the Screen----------------------
+	if(player.y < 0 + player.height/2)
+	{
+		player.y = 0 + player.height/2;
+	}
+
+	if(player.y > canvas.height - player.height/2)
+    {
+        player.y = canvas.height - player.height/2;
+
+    }
+	//---------------------------------------------------
 	
 	//Update the Screen
 	player.drawRect();
