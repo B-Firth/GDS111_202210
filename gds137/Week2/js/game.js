@@ -20,7 +20,7 @@ var ball;
 	player.width = 17;
 
 	ball.vx = -8;
-	ball.vy = 0;
+	ball.vy = 8;
 
 	ball.width = 30;
 	ball.height = 30;
@@ -40,12 +40,12 @@ function animate()
 	if(d)
 	{
 		console.log("Moving down");
-		player.y += 2;
+		player.y += 5;
 	}
 	if(a)
 	{
 		console.log("Moving up");
-		player.y += -2;
+		player.y += -5;
 	}
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	player.move();
@@ -123,15 +123,26 @@ function animate()
 
 	if(player.hitTestObject(ball))
         {
-            ball.vx = -ball.vx;
+			ball.vx = -ball.vx;
             ball.x = player.x + player.width/2 + ball.width/2
-
-        }
-
+    
+			 //ball hits top
+			if(ball.y < player.y - player.height/6)
+				 {
+			  	 ball.vy = -5;
+			 	}
+		
+			 //ball hits bottom
+			if(ball.y > player.y + player.height/6)
+				 {
+			  	 ball.vy = +5;
+			 	}
+			
+		}
 
 
 	//Update the Screen
 	player.drawRect();
 	ball.drawCircle();
-}
+	}
 
