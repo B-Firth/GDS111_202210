@@ -19,8 +19,8 @@ var ball;
 	player.x = 0;
 	player.width = 17;
 
-	ball.vx = -4;
-	ball.vy = -4;
+	ball.vx = -8;
+	ball.vy = 0;
 
 	ball.width = 30;
 	ball.height = 30;
