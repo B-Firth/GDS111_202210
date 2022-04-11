@@ -118,7 +118,7 @@ function animate()
 	if(ball.x < 0)
 	{
 		ball.x = canvas.width/2
-		ball.vx = -ball.vx
+		ball.vx = ball.vx
 	}
 
 	if(player.hitTestObject(ball))
