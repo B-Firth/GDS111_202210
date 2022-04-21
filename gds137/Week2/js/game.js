@@ -14,13 +14,18 @@ var ball;
 	
 	//Instantiate the Player
 	player = new GameObject();
+	player2 = new GameObject();
+	
 	ball = new GameObject();
 
 	player.x = 0;
-	player.width = 17;
+	player2.x = 1024;
 
-	ball.vx = -8;
-	ball.vy = 8;
+	player.width = 17;
+	player2.width = 17;
+
+	ball.vx = 6;
+	ball.vy = 0;
 
 	ball.width = 30;
 	ball.height = 30;
@@ -36,7 +41,7 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
 	
-	//Move the Player to the right
+	//Move the Player up and down
 	if(d)
 	{
 		console.log("Moving down");
@@ -47,8 +52,20 @@ function animate()
 		console.log("Moving up");
 		player.y += -5;
 	}
+
+	if(dwn)
+	{
+		console.log("Moving down");
+		player2.y += 5;
+	}
+	if(up)
+	{
+		console.log("Moving up");
+		player2.y += -5;
+	}
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	player.move();
+	player2.move();
 	
 	//--------------Keep the Screen----------------------
 	if(player.y < 0 + player.height/2)
@@ -61,6 +78,17 @@ function animate()
         player.y = canvas.height - player.height/2;
 
     }
+
+	if(player2.y < 0 + player2.height/2)
+	{
+		player2.y = 0 + player2.height/2;
+	}
+
+	if(player2.y > canvas.height - player2.height/2)
+    {
+        player2.y = canvas.height - player2.height/2;
+
+    }
 	//---------------------------------------------------
 
 	//Ball Stuff
@@ -71,7 +99,7 @@ function animate()
     ball.move();
     //---------------------------------------------------
 
-    if(ball.x > canvas.width - ball.width/2)
+    /*if(ball.x > canvas.width - ball.width/2) //Right of the screen boundary
 	{
 		ball.x = canvas.width - ball.width/2
 		ball.vx = -ball.vx;	
@@ -80,21 +108,10 @@ function animate()
 		{
 			ball.vx = 5
 		}
-	}
-
-		if(ball.x > canvas.width - ball.width/2)
-	{
-		ball.x = canvas.width - ball.width/2
-		ball.vx = -ball.vx;	
-		
-		if(ball.vx > 50)
-		{
-			ball.vx = 5
-		}
-	}
+	}*/
 
 
-	if(ball.y > canvas.height - ball.height/2)
+	if(ball.y > canvas.height - ball.height/2) //Bottom of the screen boundary
 	{
 		ball.y = canvas.height - ball.height/2
 		ball.vy = -ball.vy;
@@ -105,7 +122,7 @@ function animate()
 		}
 	}
 
-	if(ball.y < 0 + ball.height/2)
+	if(ball.y < 0 + ball.height/2) //Top of the screen boundary
 	{
 		ball.vy = -ball.vy;	
 		
@@ -115,11 +132,19 @@ function animate()
 		}
 	}
 
-	if(ball.x < 0)
+	if(ball.x < 0) //RESET ball to middle
 	{
 		ball.x = canvas.width/2
 		ball.vx = ball.vx
 	}
+
+	if(ball.x > 1024)
+	{
+		ball.x = canvas.width/2
+		ball.vx = ball.vx
+	}
+
+	//------------------Paddle Collision BELOW------------------------------
 
 	if(player.hitTestObject(ball))
         {
@@ -140,9 +165,29 @@ function animate()
 			
 		}
 
+	if(player2.hitTestObject(ball))
+        {
+			ball.vx = -ball.vx;
+            ball.x = player2.x - player2.width/2 - ball.width/2
+    
+			 //ball hits top
+			if(ball.y < player2.y - player2.height/6)
+				 {
+			  	 ball.vy = -5;
+			 	}
+		
+			 //ball hits bottom
+			if(ball.y > player2.y + player2.height/6)
+				 {
+			  	 ball.vy = +5;
+			 	}
+			
+		}
+
 
 	//Update the Screen
 	player.drawRect();
+	player2.drawRect();
 	ball.drawCircle();
-	}
+}
 
