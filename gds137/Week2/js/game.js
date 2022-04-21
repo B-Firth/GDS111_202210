@@ -9,6 +9,7 @@ var player;
 var ball;
 var p1wins = 0;
 var p2wins = 0;
+var img = document.getElementById("Ric");
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -26,8 +27,8 @@ var p2wins = 0;
 	player.width = 17;
 	player2.width = 17;
 
-	ball.vx = -8;
-	ball.vy = 8;
+	ball.vx = -6;
+	ball.vy = 6;
 
 	ball.width = 30;
 	ball.height = 30;
@@ -194,10 +195,10 @@ function animate()
 
 	//Update the Screen
 	
-	
 	player.drawRect();
 	player2.drawRect();
 	ball.drawCircle();
+	context.drawImage(ric, ball.x-17, ball.y-16, ball.width+3, ball.height+3);
 
 	context.lineWidth = 3;
 	context.beginPath();
