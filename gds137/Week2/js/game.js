@@ -26,8 +26,8 @@ var p2wins = 0;
 	player.width = 17;
 	player2.width = 17;
 
-	ball.vx = 6;
-	ball.vy = 0;
+	ball.vx = -8;
+	ball.vy = 8;
 
 	ball.width = 30;
 	ball.height = 30;
@@ -197,7 +197,7 @@ function animate()
 	player.drawRect();
 	player2.drawRect();
 	ball.drawCircle();
-	context.font = "15px Georgia";
-	context.fillText(`Player 1's Score: ${p1wins} | Player 2's Score:  ${p2wins}`, 500, 50);
+	context.font = "20px Georgia";
+	context.fillText(`Player 1's Score: ${p1wins}   ||   Player 2's Score:  ${p2wins}`, 300, 50);
 }
 
