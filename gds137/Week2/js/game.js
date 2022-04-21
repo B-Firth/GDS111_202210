@@ -33,6 +33,7 @@ var p2wins = 0;
 	ball.height = 30;
 	ball.x = canvas.width/2;
 	ball.y = player.y;
+	ball.color = "#01FFFF"
 
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
@@ -197,7 +198,16 @@ function animate()
 	player.drawRect();
 	player2.drawRect();
 	ball.drawCircle();
+
+	context.lineWidth = 3;
+	context.beginPath();
+	context.moveTo(512, 0);
+	context.lineTo(512, 801);
+	context.strokeStyle = "blue";
+	context.stroke();
+	context.restore();
+
 	context.font = "20px Georgia";
-	context.fillText(`Player 1's Score: ${p1wins}   ||   Player 2's Score:  ${p2wins}`, 300, 50);
+	context.fillText(`Player 1's Score: ${p1wins}   ||   Player 2's Score:  ${p2wins}`, 330, 50);
 }
 
