@@ -7,6 +7,8 @@ var timer;
 var interval = 1000/60;
 var player;
 var ball;
+var p1wins = 0;
+var p2wins = 0;
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -132,16 +134,20 @@ function animate()
 		}
 	}
 
-	if(ball.x < 0) //RESET ball to middle
+	if(ball.x < 0) //RESET ball to middle (Left Side)
 	{
 		ball.x = canvas.width/2
 		ball.vx = ball.vx
+		p2wins = p2wins + 1
+		console.log(p2wins)
 	}
 
-	if(ball.x > 1024)
+	if(ball.x > 1024) //RESET ball to middle (Right Side)
 	{
 		ball.x = canvas.width/2
 		ball.vx = ball.vx
+		p1wins = p1wins + 1
+		console.log(p1wins)
 	}
 
 	//------------------Paddle Collision BELOW------------------------------
@@ -186,8 +192,12 @@ function animate()
 
 
 	//Update the Screen
+	
+	
 	player.drawRect();
 	player2.drawRect();
 	ball.drawCircle();
+	context.font = "15px Georgia";
+	context.fillText(`Player 1's Score: ${p1wins} | Player 2's Score:  ${p2wins}`, 500, 50);
 }
 
