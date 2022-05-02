@@ -119,7 +119,7 @@ function animate()
 				ball.vx = ball.force*5;
 			}
 
-			else if(ball.x > player.x - player.width/6)
+			else if(ball.x < player.x - player.width/6)
 			{
 				ball.vx = -ball.force;
 			}
