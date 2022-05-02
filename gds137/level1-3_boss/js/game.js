@@ -10,6 +10,7 @@ var ball;
 var score = 0;
 var gravity = 1;
 var friction = 0.97;
+var frictionY = 0.97;
 
 
 
@@ -43,6 +44,8 @@ function animate()
 	//Erase the Screen
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	 //----Movement Using the ball's move() function----
+	 ball.vx*=friction;
+	 ball.vy*=frictionY;
 	 ball.vy += gravity
 	 ball.move();
 	//---------------------------------------------------
@@ -151,7 +154,8 @@ if(player.x > canvas.width - player.width/2)
 	context.strokeStyle = "black";
 	context.stroke();
 	context.restore();
-	context.font = "16px Arial";
+	context.font = "bold 16px Arial";
+	context.fillStyle = "#555555";
 	context.fillText(`Score: ${score}`, 80, 25);
 }
 
