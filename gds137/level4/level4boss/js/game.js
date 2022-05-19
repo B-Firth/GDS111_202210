@@ -23,21 +23,25 @@ var bulletAmount = 25;
 var dir = {x:1, y:0};
 
 var bullet;
+var playerHp = 100;
 
 
 	
 	//Instantiate the Player
 	player = new GameObject();
-	player2 = new GameObject();
+	enemy = new GameObject();
+	hpPack = new GameObject();
 	
 	ball = new GameObject();
 
 	player.x = 300;
-	player2.x = 1024;
+	enemy.x = 900;
+	enemy.y = 450;
+	hpPack.x = 200;
+	hpPack.y = 100;
 
 	player.width = 100;
 	player.height = 15
-	player2.width = 17;
 
 	for(var b = 0; b < bulletAmount; b++)
 	{
@@ -114,7 +118,6 @@ function animate()
 
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	player.move();
-	player2.move();
 	
 	//--------------Keep the Screen----------------------
 	if(player.y < 0 + player.height/2)
@@ -157,12 +160,33 @@ function animate()
 	}*/
 
 
+	if(player.hitTestObject(enemy))
+	{
+		if(playerHp > 0)
+		{
+			playerHp--;
+		}
+	}
+
+	if(player.hitTestObject(hpPack))
+	{
+		if(playerHp < 100)
+		{
+			playerHp = playerHp + 1;
+		}
+	}
+
+
 
 	//Update the Screen
 	bullet.color = "#FFAA1D"
 	bullet.drawRect2();
 
 	bullet.move();
+	enemy.color = "#D21404"
+	enemy.drawRect();
+	hpPack.color = "#37FD12"
+	hpPack.drawRect();
 	player.drawRect();
 	context.drawImage(f18, player.x-95, player.y-65, player.width+86, player.height+100);
 	//player2.drawRect();
@@ -172,7 +196,9 @@ function animate()
 
 	context.font = "20px Georgia";
 	context.fillStyle = "#00FF00"
-	context.fillText(`Hex 1 Score: ${p1wins}   ||   Hex 2 Score:  ${p2wins}`, 330, 50);
+	context.fillText(`Hex 1 Hull: ${playerHp}` , 330, 50);
+
+	
 
 }
 
