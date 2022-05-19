@@ -38,7 +38,7 @@ var playerHp = 100;
 	enemy.x = 900;
 	enemy.y = 450;
 	hpPack.x = 200;
-	hpPack.y = 100;
+	hpPack.y = 900;
 
 	player.width = 100;
 	player.height = 15
