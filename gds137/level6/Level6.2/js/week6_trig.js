@@ -117,6 +117,11 @@ function pull()
 
 		pearl.x += dx /25;
 		pearl.y += dy /25;
+
+		if(pearl.hitTestPoint(player))
+		{
+			pearl.y = 10000
+		}
 	}
 	}
 
