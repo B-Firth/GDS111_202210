@@ -13,7 +13,8 @@ var player;
 var ball;
 var p1wins = 0;
 var p2wins = 0;
-var img = document.getElementById("f18");	
+var img = document.getElementById("f18");
+var img2 = document.getElementById("rev")	
 var bullets = [];
 var currentBullet = 0;
 var fireCounter = 30;
@@ -24,7 +25,12 @@ var dir = {x:1, y:0};
 
 var bullet;
 var playerHp = 100;
+var particles=[];
 
+function rand(low, high)
+{
+		return Math.random() * (high - low) + low;
+}
 
 	
 	//Instantiate the Player
@@ -37,8 +43,8 @@ var playerHp = 100;
 	player.x = 300;
 	enemy.x = 900;
 	enemy.y = 450;
-	hpPack.x = 200;
-	hpPack.y = 900;
+	hpPack.x = 100;
+	hpPack.y = 955;
 
 	player.width = 100;
 	player.height = 15
@@ -68,52 +74,54 @@ function animate()
 	//Erase the Screen
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
-	
-	//Move the Player up and down
-	if(s)
+	if (playerHp > 0)
 	{
-		console.log("Moving up");
-		player.y += 10;
-	}
-	if(w)
-	{
-		console.log("Moving dwn");
-		player.y += -10;
-	}
+			//Move the Player up and down
+			if(s)
+			{
+				console.log("Moving up");
+				player.y += 10;
+			}
+			if(w)
+			{
+				console.log("Moving dwn");
+				player.y += -10;
+			}
 
-	if(a)
-	{
-		console.log("Moving fwrd");
-		player.x += -10;
-	}
-	if(d)
-	{
-		console.log("Moving back");
-		player.x += 10;
-	}
+			if(a)
+			{
+				console.log("Moving fwrd");
+				player.x += -10;
+			}
+			if(d)
+			{
+				console.log("Moving back");
+				player.x += 10;
+			}
 
-	fireCounter--;
-	if(sp)
-	{
-		if(fireCounter <= 0)
-		{
-			console.log("firing");
-			/*bullets[currentBullet].x = player.x;
-			bullets[currentBullet].y = player.y;
+			fireCounter--;
+			if(sp)
+			{
+				if(fireCounter <= 0)
+				{
+					console.log("firing");
+					/*bullets[currentBullet].x = player.x;
+					bullets[currentBullet].y = player.y;
 
-			bullets[currentBullet].vx = dir.x * bullets[currentBullet].force;
-			bullets[currentBullet].vy = dir.y * bullets[currentBullet].force;*/
-			bullet.x = player.x + 15;
-			bullet.y = player.y;
-			fireCounter += fireRate;
-			
-			
-		}
-	}
-	else
-	{
-		fireCounter = 0;
+					bullets[currentBullet].vx = dir.x * bullets[currentBullet].force;
+					bullets[currentBullet].vy = dir.y * bullets[currentBullet].force;*/
+					bullet.x = player.x + 15;
+					bullet.y = player.y;
+					fireCounter += fireRate;
+					
+					
+				}
+			}
+			else
+			{
+				fireCounter = 0;
 
+			}
 	}
 
 	context.clearRect(0,0,canvas.width, canvas.height);	
@@ -177,6 +185,39 @@ function animate()
 	}
 
 
+	player.drawRect();
+	context.drawImage(f18, player.x-95, player.y-65, player.width+86, player.height+100);
+
+	if (playerHp <= 0)
+	{
+		player.y++
+		player.x--
+		context.drawImage(f18, player.x-95, player.y-65, player.width+86, player.height+100);
+
+			for(var i = 0; i < 50; i++)
+				{
+					particles[i] = new GameObject({x:0, y:0, width:30, height:30, color:"#ff0000"});
+					particles[i].vx = rand(-25, 25);
+					particles[i].vy = rand(-25, 25);
+					particles[i].x = player.x;
+					particles[i].y = player.y;
+				}
+
+			for(var i = 0; i < 50; i++)
+				{
+					particles[i].move();
+					particles[i].drawCircle();
+				}
+				
+
+		
+
+			
+
+		
+	}
+
+
 
 	//Update the Screen
 	bullet.color = "#FFAA1D"
@@ -187,8 +228,6 @@ function animate()
 	enemy.drawRect();
 	hpPack.color = "#37FD12"
 	hpPack.drawRect();
-	player.drawRect();
-	context.drawImage(f18, player.x-95, player.y-65, player.width+86, player.height+100);
 	//player2.drawRect();
 	//ball.drawCircle();
 
